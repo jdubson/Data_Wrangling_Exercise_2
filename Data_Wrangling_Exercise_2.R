@@ -7,3 +7,6 @@ titanic_clean <- read.csv(file = "~/Desktop/Springboard/titanic_original.csv", h
 
 # 1. Port of embarkation
 titanic_clean$embarked <- gsub(pattern = "^$", replacement = "S", titanic_clean$embarked)
+
+# 2. Age
+titanic_clean$age[is.na(titanic_clean$age)] <- mean(titanic_clean$age, na.rm = TRUE)
