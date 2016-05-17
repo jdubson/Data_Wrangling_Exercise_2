@@ -10,3 +10,6 @@ titanic_clean$embarked <- gsub(pattern = "^$", replacement = "S", titanic_clean$
 
 # 2. Age
 titanic_clean$age[is.na(titanic_clean$age)] <- mean(titanic_clean$age, na.rm = TRUE)
+
+# 3. Lifeboat
+titanic_clean$boat <- gsub(pattern = "^$", replacement = "NA", titanic_clean$boat)
