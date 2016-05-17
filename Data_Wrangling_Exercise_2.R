@@ -13,3 +13,10 @@ titanic_clean$age[is.na(titanic_clean$age)] <- mean(titanic_clean$age, na.rm = T
 
 # 3. Lifeboat
 titanic_clean$boat <- gsub(pattern = "^$", replacement = "NA", titanic_clean$boat)
+
+# 4. Cabin
+titanic_clean <- titanic_clean %>%
+  mutate(has_cabin_number = ifelse(cabin %in% "", 0, 1))
+
+# Write titanic_clean as csv
+write.csv(refine_clean, file = "titanic_clean.csv")
